@@ -7,7 +7,7 @@ def main():
     delimiterOne = os.environ["delimiterOne"]
     delimiterTwo = os.environ["delimiterTwo"]
 
-    output = content.partition('### **Description**')[2].partition('### **Checklist**')[0].strip()
+    output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip()
 
     my_output = f"{output}"
 
