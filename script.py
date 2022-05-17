@@ -9,7 +9,8 @@ def main():
 
     output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip().replace('\n', '%0A')
 
-    print(f"""::set-output name=match::{output}""")
+    print(f"""::set-output name=match::'{output}'""")
+    os.system(f'echo "::set-output name=changelog_content::{output}"')
 
 
 if __name__ == "__main__":
