@@ -7,7 +7,7 @@ def main():
     delimiterOne = os.environ["INPUT_DELIMITERONE"]
     delimiterTwo = os.environ["INPUT_DELIMITERTWO"]
 
-    output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip()
+    output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip().replace('\n', '%0A')
 
     print(f"""::set-output name=match::{output}""")
 
