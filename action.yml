@@ -1,13 +1,22 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "Extract substring"
+description: "Extract string between 2 delimiters"
+author: "Amal Dinesh"
 inputs:
-  myInput:
+  content:
     description: "Input to use"
-    default: "world"
+    required: true
+
+  delimiterOne:
+    description: "Delimiter 1"
+    required: true
+    
+  delimiterTwo:
+    description: "Delimiter 2"
+    required: true
+    
 outputs:
-  myOutput:
-    description: "Output from the action"
+  match:
+    description: "String between the specified delimiters"
 runs:
   using: "docker"
   image: "Dockerfile"
