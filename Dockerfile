@@ -1,14 +1,9 @@
-FROM python:3-slim AS builder
-ADD . /app
-WORKDIR /app
-
-# We are installing a dependency here directly into our app source dir
-RUN pip install --target=/app requests
-
-# A distroless container image with Python and some basics like SSL certificates
-# https://github.com/GoogleContainerTools/distroless
-FROM gcr.io/distroless/python3-debian10
-COPY --from=builder /app /app
-WORKDIR /app
-ENV PYTHONPATH /app
-CMD ["/app/main.py"]
+# action will be run in python3 container
+FROM python:3
+# copying requirements.txt and install the action dependencies
+COPY requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+# script.py is the file that will contain the codes that we want to run for this action.
+COPY script.py /script.py
+# we will just run our script.py as our docker entrypoint by python script.py
+CMD ["python", "/script.py"]

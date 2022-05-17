@@ -3,9 +3,9 @@ import requests  # noqa We are just importing this to prove the dependency insta
 
 
 def main():
-    content = os.environ["content"]
-    delimiterOne = os.environ["delimiterOne"]
-    delimiterTwo = os.environ["delimiterTwo"]
+    content = os.environ["INPUT_CONTENT"]
+    delimiterOne = os.environ["INPUT_DELIMITERONE"]
+    delimiterTwo = os.environ["INPUT_DELIMITERTWO"]
 
     output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip()
 
