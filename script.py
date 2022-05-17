@@ -9,9 +9,7 @@ def main():
 
     output = content.partition(delimiterOne)[2].partition(delimiterTwo)[0].strip()
 
-    my_output = f"{output}"
-
-    print(f"::set-output name=match::{my_output}")
+    print(f"::set-output name=match::{output}")
 
 
 if __name__ == "__main__":
